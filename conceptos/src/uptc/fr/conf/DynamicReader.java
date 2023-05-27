@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import uptc.fr.db.ConnectionManager;
 
@@ -28,6 +29,10 @@ public class DynamicReader<T> {
                 Column columnName = fields[i].getAnnotation(Column.class);
                 if (fields[i].getType().equals(Long.class)) {
                     fields[i].set(t, rs.getLong(columnName.name()));
+                } else if (fields[i].getType().equals(int.class)) {
+                    fields[i].set(t, rs.getInt(columnName.name()));
+                } else if (fields[i].getType().equals(Date.class)) {
+                    fields[i].set(t, rs.getDate(columnName.name()));
                 } else {
                     fields[i].set(t, rs.getString(columnName.name()));
                 }

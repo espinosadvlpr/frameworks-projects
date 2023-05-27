@@ -8,7 +8,7 @@ import uptc.fr.conf.Entity;
 @Entity(table = "message")
 public class MessageEntity {
     @Column(name = "mes_id")
-    private long id;
+    private Long id;
     @Column(name = "mes_num")
     private int num;
     @Column(name = "mes_text")
@@ -58,8 +58,7 @@ public class MessageEntity {
         this.fecha = fecha;
     }
 
-    @Override
-    public String toString() {
+    public String print() {
         return "MessageEntity{" +
                 "id=" + id +
                 ", num=" + num +
